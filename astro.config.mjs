@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://mistyminds.github.io',
-  base: '/redbank-iii',
+  base: '/redbank-III',
   output: 'static',
   i18n: {
     defaultLocale: 'zh',

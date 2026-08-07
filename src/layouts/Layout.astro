@@ -12,8 +12,12 @@ const { lang = defaultLang, title = 'Redbank III 红岸三号', description = 'O
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 
+// base is `/redbank-III` (no trailing slash) — normalize to `baseWithSlash`
+// so `${baseWithSlash}${lang}/` produces `/redbank-III/zh/` not `/redbank-IIIzh/`.
+const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
 // strip locale prefix from path for language switcher
-const pathWithoutLocale = currentPath.replace(new RegExp(`^${base}(zh|en|fr)?`), '') || '/';
+const pathWithoutLocale =
+  currentPath.replace(new RegExp(`^${baseWithSlash}(zh|en|fr)?`), '') || '/';
 ---
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ const pathWithoutLocale = currentPath.replace(new RegExp(`^${base}(zh|en|fr)?`),
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href={`${base}${lang}/`} class="nav-logo">
+    <a href={`${baseWithSlash}${lang}/`} class="nav-logo">
       <span class="logo-mark">◉</span>
       <span class="logo-text">REDBANK <em>III</em></span>
     </a>
@@ -49,7 +53,7 @@ const pathWithoutLocale = currentPath.replace(new RegExp(`^${base}(zh|en|fr)?`),
       <div class="lang-switcher">
         {Object.entries(languages).map(([code, name]) => (
           <a
-            href={`${base}${code}${pathWithoutLocale}`}
+            href={`${baseWithSlash}${code}${pathWithoutLocale}`}
             class:list={['lang-link', { active: code === lang }]}
           >
             {code.toUpperCase()}
