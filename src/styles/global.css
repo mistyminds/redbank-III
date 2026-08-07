@@ -90,9 +90,15 @@ body {
 .hero-title .line { display: block; }
 .hero-sub {
   font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.4em;
-  color: var(--text-mute); margin-bottom: 40px;
+  color: var(--text-mute); margin-bottom: 8px;
   text-transform: uppercase;
 }
+.hero-tagline {
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.3em;
+  color: var(--accent-warm); margin-bottom: 36px;
+  text-transform: uppercase; opacity: 0.9;
+}
+.timeline-origin .timeline-year { color: var(--accent-warm); }
 .hero-desc {
   font-size: 18px; color: var(--text-dim); line-height: 1.8;
   margin-bottom: 48px;
@@ -259,6 +265,8 @@ body {
 .bom-table {
   width: 100%; border-collapse: collapse;
   font-size: 14px;
+  /* fixed layout so columns stay aligned regardless of content width */
+  table-layout: fixed;
 }
 .bom-table th {
   text-align: left; padding: 14px 16px;
@@ -266,17 +274,28 @@ body {
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--text-mute); border-bottom: 2px solid var(--accent);
 }
+/* column widths: 组件/型号 get room, 数量 narrow, 单价/小计 right-aligned numbers */
+.bom-table th:nth-child(1) { width: 22%; }
+.bom-table th:nth-child(2) { width: 40%; }
+.bom-table th:nth-child(3) { width: 8%; text-align: center; }
+.bom-table th:nth-child(4) { width: 15%; text-align: right; }
+.bom-table th:nth-child(5) { width: 15%; text-align: right; }
 .bom-table td {
   padding: 14px 16px; border-bottom: 1px solid var(--border);
   color: var(--text-dim);
+  overflow-wrap: break-word;
+  vertical-align: top;
 }
 .bom-table td:first-child { color: var(--text); font-weight: 500; }
+.bom-table td:nth-child(3) { text-align: center; font-family: var(--font-mono); }
 .bom-table td:nth-child(4),
 .bom-table td:nth-child(5) { font-family: var(--font-mono); text-align: right; }
 .bom-table tfoot td {
   border-bottom: none; padding-top: 20px;
   font-family: var(--font-mono); font-weight: 700;
 }
+/* tfoot summary rows: first cell spans the component+model columns, number on the right */
+.bom-table tfoot td:first-child { text-align: right; color: var(--text-mute); font-weight: 500; }
 .bom-total td { color: var(--accent-warm) !important; font-size: 18px; }
 .bom-note {
   margin-top: 32px; padding: 24px; background: var(--surface);
@@ -289,6 +308,7 @@ body {
 .array-table-wrap { overflow-x: auto; margin-top: 40px; }
 .array-table {
   width: 100%; border-collapse: collapse; font-size: 14px;
+  table-layout: fixed;
 }
 .array-table th {
   text-align: left; padding: 14px 16px;
@@ -296,12 +316,22 @@ body {
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--text-mute); border-bottom: 2px solid var(--accent);
 }
+/* column widths for the 6-col array table */
+.array-table th:nth-child(1) { width: 12%; }
+.array-table th:nth-child(2) { width: 13%; }
+.array-table th:nth-child(3) { width: 13%; }
+.array-table th:nth-child(4) { width: 13%; }
+.array-table th:nth-child(5) { width: 14%; }
+.array-table th:nth-child(6) { width: 35%; }
 .array-table td {
   padding: 16px; border-bottom: 1px solid var(--border);
   color: var(--text-dim);
+  overflow-wrap: break-word;
+  vertical-align: top;
 }
 .array-table td:first-child { color: var(--text); font-weight: 500; }
 .array-table td:nth-child(2),
+.array-table td:nth-child(3),
 .array-table td:nth-child(4),
 .array-table td:nth-child(5) { font-family: var(--font-mono); }
 .array-table td:nth-child(5) { color: var(--accent-warm); font-weight: 700; }
