@@ -1,0 +1,142 @@
+---
+// Main layout — wraps all pages with nav, footer, starfield
+import { languages, ui, defaultLang, t } from '../i18n/ui.js';
+
+export interface Props {
+  lang?: keyof typeof ui;
+  title?: string;
+  description?: string;
+}
+
+const { lang = defaultLang, title = 'Redbank III 红岸三号', description = 'Open source array telescope' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+// strip locale prefix from path for language switcher
+const pathWithoutLocale = currentPath.replace(new RegExp(`^${base}(zh|en|fr)?`), '') || '/';
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style is:global>
+  @import '../styles/global.css';
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href={`${base}${lang}/`} class="nav-logo">
+      <span class="logo-mark">◉</span>
+      <span class="logo-text">REDBANK <em>III</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="#mission">{t(lang, 'nav.mission')}</a>
+      <a href="#design">{t(lang, 'nav.design')}</a>
+      <a href="#plans">{t(lang, 'nav.plans')}</a>
+      <a href="#array">{t(lang, 'nav.array')}</a>
+      <a href="#story">{t(lang, 'nav.story')}</a>
+      <a href="#open">{t(lang, 'nav.open')}</a>
+      <a href="#join" class="nav-cta">{t(lang, 'nav.join')}</a>
+      <div class="lang-switcher">
+        {Object.entries(languages).map(([code, name]) => (
+          <a
+            href={`${base}${code}${pathWithoutLocale}`}
+            class:list={['lang-link', { active: code === lang }]}
+          >
+            {code.toUpperCase()}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<slot />
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">◉ REDBANK III</div>
+        <p style="white-space: pre-line">{t(lang, 'footer.tagline')}</p>
+      </div>
+      <div class="footer-col">
+        <h4>{t(lang, 'nav.plans')}</h4>
+        <a href="#plan-a">Plan A — IMX + RK3576</a>
+        <a href="#plan-b">Plan B — Phone</a>
+        <a href="#array">{t(lang, 'nav.array')}</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="https://github.com/mistyminds/redbank-iii">GitHub</a>
+        <a href="#">Docs</a>
+        <a href="#">BOM</a>
+        <a href="#">Datasets</a>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="#">Discord</a>
+        <a href="#">Forum</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Hardware: CERN-OHL-W-2.0 · Software: Apache-2.0 · Docs: CC BY-SA 4.0 · Data: CC0</p>
+      <p>{t(lang, 'footer.motto')}</p>
+      <p class="image-credits">Images: NASA/ESA/CSA/STScI (public domain)</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav hide on scroll
+  let lastY = 0;
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 100 && y > lastY) nav?.classList.add('hidden');
+    else nav?.classList.remove('hidden');
+    lastY = y;
+  }, { passive: true });
+
+  // scroll fade-in
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    }
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section, .plan-card, .principle, .timeline-item, .open-item, .join-item, .science-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    io.observe(el);
+  });
+
+  // vs-bar animation
+  const vsObserver = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.vs-bar').forEach(bar => {
+          bar.style.width = bar.style.getPropertyValue('--pct');
+        });
+      }
+    }
+  }, { threshold: 0.3 });
+  const vsGrid = document.querySelector('.vs-grid');
+  if (vsGrid) vsObserver.observe(vsGrid);
+</script>
+
+</body>
+</html>
