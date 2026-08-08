@@ -11,7 +11,7 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="hero-bg"><canvas id="starfield"></canvas></div>
+  <div class="hero-bg"><img class="hero-bg-img" src={`${imgBase}/images/concept/hero-redbank.jpg`} alt="" aria-hidden="true"><div class="hero-bg-scrim"></div><canvas id="starfield"></canvas></div>
   <div class="hero-content">
     <div class="hero-eyebrow">{t(lang, 'hero.eyebrow')}</div>
     <h1 class="hero-title">
@@ -34,6 +34,34 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
   </div>
   <div class="hero-scroll">Scroll down ↓</div>
 </header>
+
+<!-- ============ WHY "REDBANK" — core concept ============ -->
+<section class="section section-dark" id="name">
+  <div class="container">
+    <div class="section-eyebrow">核心设定 · THE NAME</div>
+    <h2 class="section-title">{t(lang, 'name.title')}</h2>
+    <div class="name-grid">
+      <div class="name-card name-vs">
+        <h3>{t(lang, 'name.red')}</h3>
+        <p class="name-emit">📡 ⇢ 向外发射</p>
+        <p>{t(lang, 'name.red.desc')}</p>
+      </div>
+      <div class="name-card name-vs name-bank">
+        <h3>{t(lang, 'name.bank')}</h3>
+        <p class="name-emit">👁 ⇠ 只接收 · 不广播</p>
+        <p>{t(lang, 'name.bank.desc')}</p>
+      </div>
+      <div class="name-card">
+        <h3>{t(lang, 'name.pun')}</h3>
+        <p>{t(lang, 'name.pun.desc')}</p>
+      </div>
+      <div class="name-card">
+        <h3>{t(lang, 'name.eng')}</h3>
+        <p>{t(lang, 'name.eng.desc')}</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ MISSION ============ -->
 <section class="section" id="mission">
