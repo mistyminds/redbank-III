@@ -185,47 +185,13 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
 <!-- ============ TWO PLANS ============ -->
 <section class="section section-dark" id="plans">
   <div class="container">
-    <div class="section-eyebrow">两条路径 · TWO PLANS</div>
+    <div class="section-eyebrow">技术方案 · DESIGN</div>
     <h2 class="section-title">{t(lang, 'plans.title')}</h2>
     <p class="section-sub">{t(lang, 'plans.sub')}</p>
 
     <div class="plans-compare">
-      <div class="plan-card" id="plan-a">
-        <div class="plan-badge">PLAN A</div>
-        <h3>IMX 模组 + RK3576 工业板</h3>
-        <p class="plan-tagline">标准化, 可复制, 生态成熟</p>
-        <div class="plan-spec">
-          <div class="spec-row"><span>传感器</span><strong>IMX571 APS-C 模组</strong></div>
-          <div class="spec-row"><span>计算单元</span><strong>RK3576 工业板 (6 TOPS NPU)</strong></div>
-          <div class="spec-row"><span>镜头</span><strong>Samyang 135mm f/2.0</strong></div>
-          <div class="spec-row"><span>等效口径</span><strong>67.5mm (单镜)</strong></div>
-          <div class="spec-row"><span>单台成本</span><strong class="cost">$1,600</strong></div>
-          <div class="spec-row"><span>4 镜阵列</span><strong>$6,400</strong></div>
-        </div>
-        <div class="plan-pros-cons">
-          <div class="pros">
-            <h4>优势</h4>
-            <ul>
-              <li>生态成熟 (Linux + libcamera)</li>
-              <li>可逆组装, 失败成本低</li>
-              <li>无需定制机械</li>
-              <li>APS-C 大底 (23.5×15.6mm)</li>
-            </ul>
-          </div>
-          <div class="cons">
-            <h4>代价</h4>
-            <ul>
-              <li>成本较高 ($1,600 vs $618)</li>
-              <li>需要外接屏幕/电池/存储</li>
-              <li>软件栈要自己写</li>
-            </ul>
-          </div>
-        </div>
-        <a href="#bom-a" class="btn btn-plan">看 Plan A BOM</a>
-      </div>
-
       <div class="plan-card plan-featured" id="plan-b">
-        <div class="plan-badge">PLAN B · 推荐</div>
+        <div class="plan-badge">设计方案</div>
         <h3>旧手机改造 + 华强北供应链</h3>
         <p class="plan-tagline">性价比之王, 白嫖整个软件栈</p>
         <div class="plan-spec">
@@ -258,7 +224,7 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
             </ul>
           </div>
         </div>
-        <a href="#bom-b" class="btn btn-plan">看 Plan B BOM</a>
+        <a href="#bom-b" class="btn btn-plan">看 BOM</a>
       </div>
     </div>
 

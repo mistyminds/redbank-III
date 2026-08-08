@@ -178,44 +178,12 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
 <!-- ============ TWO PLANS ============ -->
 <section class="section section-dark" id="plans">
   <div class="container">
-    <div class="section-eyebrow">DEUX VOIES · 两条路径</div>
+    <div class="section-eyebrow">CONCEPTION · 技术方案</div>
     <h2 class="section-title">{t(lang, 'plans.title')}</h2>
     <p class="section-sub">{t(lang, 'plans.sub')}</p>
 
     <div class="plans-compare">
-      <div class="plan-card" id="plan-a">
-        <div class="plan-badge">PLAN A</div>
-        <h3>IMX 模组 + RK3576 工业板</h3>
-        <p class="plan-tagline">Standardisé, réplicable, écosystème mature</p>
-        <div class="plan-spec">
-          <div class="spec-row"><span>Capteur</span><strong>IMX571 APS-C 模组</strong></div>
-          <div class="spec-row"><span>Calcul</span><strong>RK3576 工业板 (6 TOPS NPU)</strong></div>
-          <div class="spec-row"><span>Objectif</span><strong>Samyang 135mm f/2.0</strong></div>
-          <div class="spec-row"><span>Ouverture équivalente</span><strong>67.5mm (unité seule)</strong></div>
-          <div class="spec-row"><span>Coût unitaire</span><strong class="cost">$1,600</strong></div>
-          <div class="spec-row"><span>Réseau 4 unités</span><strong>$6,400</strong></div>
-        </div>
-        <div class="plan-pros-cons">
-          <div class="pros">
-            <h4>Avantages</h4>
-            <ul>
-              <li>Écosystème mature (Linux + libcamera)</li>
-              <li>Assemblage réversible, faible coût d'échec</li>
-              <li>Aucune mécanique sur mesure requise</li>
-              <li>Capteur APS-C (23.5×15.6mm)</li>
-            </ul>
-          </div>
-          <div class="cons">
-            <h4>Inconvénients</h4>
-            <ul>
-              <li>Coût plus élevé (1 600 $ vs 618 $)</li>
-              <li>Nécessite écran/batterie/stockage externes</li>
-              <li>Pile logicielle à écrire</li>
-            </ul>
-          </div>
-        </div>
-        <a href="#bom-a" class="btn btn-plan">Voir le BOM Plan A</a>
-      </div>
+      
 
       <div class="plan-card plan-featured" id="plan-b">
         <div class="plan-badge">PLAN B · 推荐</div>
@@ -276,45 +244,12 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
 </section>
 
 <!-- ============ BOM A ============ -->
-<section class="section" id="bom-a">
-  <div class="container">
-    <div class="section-eyebrow">PLAN A · BOM</div>
-    <h2 class="section-title">Nomenclature du Plan IMX</h2>
-    <div class="bom-table-wrap">
-      <table class="bom-table">
-        <thead>
-          <tr><th>Composant</th><th>Modèle</th><th>Qté</th><th>Prix unit.</th><th>Sous-total</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Capteur模组</td><td>Arducam IMX571 APS-C (MIPI)</td><td>1</td><td>$500</td><td>$500</td></tr>
-          <tr><td>Calcul</td><td>Carte industrielle RK3576 (8 Go RAM)</td><td>1</td><td>$150</td><td>$150</td></tr>
-          <tr><td>天文Objectif</td><td>Samyang 135mm f/2.0 (Canon EF)</td><td>1</td><td>$500</td><td>$500</td></tr>
-          <tr><td>Refroidissement</td><td>Peltier + ventilateur + dissipateur</td><td>1</td><td>$120</td><td>$120</td></tr>
-          <tr><td>Boîtier</td><td>铝合金 CNC Boîtier</td><td>1</td><td>$80</td><td>$80</td></tr>
-          <tr><td>Bague d'adaptation</td><td>Canon EF → module (sur mesure)</td><td>1</td><td>$40</td><td>$40</td></tr>
-          <tr><td>Alimentation</td><td>12V 5A Alimentation + 电缆</td><td>1</td><td>$40</td><td>$40</td></tr>
-          <tr><td>Divers</td><td>Vis, pâte thermique, joints, etc.</td><td>1</td><td>$70</td><td>$70</td></tr>
-          <tr><td>Écran (optionnel)</td><td>Écran tactile HDMI 7"</td><td>1</td><td>$60</td><td>$60</td></tr>
-          <tr><td>Stockage</td><td>SSD NVMe 256 Go</td><td>1</td><td>$40</td><td>$40</td></tr>
-        </tbody>
-        <tfoot>
-          <tr class="bom-total"><td colspan="4">Total par unité</td><td><strong>$1,600</strong></td></tr>
-          <tr><td colspan="4">Réseau 4 unités</td><td><strong>$6,400</strong></td></tr>
-          <tr><td colspan="4">Réseau 16 unités</td><td><strong>$25,600</strong></td></tr>
-        </tfoot>
-      </table>
-    </div>
-    <p class="bom-note">
-      ✅ <strong>Avantages:</strong> 全部货架产品, Aucune mécanique sur mesure requise, Linux 生态成熟<br>
-      ⚠️ <strong>注意:</strong> Le module IMX571 nécessite l'adaptation du pilote RK3576 (Arducam fournit la version RK3588 ; le 3576 doit être porté)
-    </p>
-  </div>
-</section>
+
 
 <!-- ============ BOM B ============ -->
 <section class="section section-dark" id="bom-b">
   <div class="container">
-    <div class="section-eyebrow">PLAN B · BOM · 推荐</div>
+    <div class="section-eyebrow">BOM · 物料清单</div>
     <h2 class="section-title">Nomenclature du Plan conversion téléphone</h2>
     <div class="bom-table-wrap">
       <table class="bom-table">

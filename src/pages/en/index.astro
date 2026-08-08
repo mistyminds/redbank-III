@@ -178,44 +178,12 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
 <!-- ============ TWO PLANS ============ -->
 <section class="section section-dark" id="plans">
   <div class="container">
-    <div class="section-eyebrow">TWO PATHS · 两条路径</div>
+    <div class="section-eyebrow">DESIGN · 技术方案</div>
     <h2 class="section-title">{t(lang, 'plans.title')}</h2>
     <p class="section-sub">{t(lang, 'plans.sub')}</p>
 
     <div class="plans-compare">
-      <div class="plan-card" id="plan-a">
-        <div class="plan-badge">PLAN A</div>
-        <h3>IMX 模组 + RK3576 工业板</h3>
-        <p class="plan-tagline">Standardized, replicable, mature ecosystem</p>
-        <div class="plan-spec">
-          <div class="spec-row"><span>Sensor</span><strong>IMX571 APS-C 模组</strong></div>
-          <div class="spec-row"><span>Compute</span><strong>RK3576 工业板 (6 TOPS NPU)</strong></div>
-          <div class="spec-row"><span>Lens</span><strong>Samyang 135mm f/2.0</strong></div>
-          <div class="spec-row"><span>Equivalent aperture</span><strong>67.5mm (single unit)</strong></div>
-          <div class="spec-row"><span>Cost per unit</span><strong class="cost">$1,600</strong></div>
-          <div class="spec-row"><span>4-unit array</span><strong>$6,400</strong></div>
-        </div>
-        <div class="plan-pros-cons">
-          <div class="pros">
-            <h4>Pros</h4>
-            <ul>
-              <li>Mature ecosystem (Linux + libcamera)</li>
-              <li>Reversible assembly, low failure cost</li>
-              <li>No custom mechanics required</li>
-              <li>APS-C sensor (23.5×15.6mm)</li>
-            </ul>
-          </div>
-          <div class="cons">
-            <h4>Cons</h4>
-            <ul>
-              <li>Higher cost ($1,600 vs $618)</li>
-              <li>Requires external display/battery/storage</li>
-              <li>Software stack must be written from scratch</li>
-            </ul>
-          </div>
-        </div>
-        <a href="#bom-a" class="btn btn-plan">See Plan A BOM</a>
-      </div>
+      
 
       <div class="plan-card plan-featured" id="plan-b">
         <div class="plan-badge">PLAN B · 推荐</div>
@@ -276,45 +244,12 @@ const imgBase = base.endsWith('/') ? base.slice(0, -1) : base;
 </section>
 
 <!-- ============ BOM A ============ -->
-<section class="section" id="bom-a">
-  <div class="container">
-    <div class="section-eyebrow">PLAN A · BOM</div>
-    <h2 class="section-title">IMX Module Plan — Bill of Materials</h2>
-    <div class="bom-table-wrap">
-      <table class="bom-table">
-        <thead>
-          <tr><th>Component</th><th>Model</th><th>Qty</th><th>Unit</th><th>Subtotal</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Sensor模组</td><td>Arducam IMX571 APS-C (MIPI)</td><td>1</td><td>$500</td><td>$500</td></tr>
-          <tr><td>Compute</td><td>RK3576 industrial board (8GB RAM)</td><td>1</td><td>$150</td><td>$150</td></tr>
-          <tr><td>天文Lens</td><td>Samyang 135mm f/2.0 (Canon EF)</td><td>1</td><td>$500</td><td>$500</td></tr>
-          <tr><td>Cooling</td><td>Peltier cooler + fan + heatsink</td><td>1</td><td>$120</td><td>$120</td></tr>
-          <tr><td>Enclosure</td><td>铝合金 CNC Enclosure</td><td>1</td><td>$80</td><td>$80</td></tr>
-          <tr><td>Adapter ring</td><td>Canon EF → module (custom)</td><td>1</td><td>$40</td><td>$40</td></tr>
-          <tr><td>Power</td><td>12V 5A Power + 电缆</td><td>1</td><td>$40</td><td>$40</td></tr>
-          <tr><td>Misc</td><td>Screws, thermal paste, seals, etc.</td><td>1</td><td>$70</td><td>$70</td></tr>
-          <tr><td>Display (optional)</td><td>7" HDMI touchscreen</td><td>1</td><td>$60</td><td>$60</td></tr>
-          <tr><td>Storage</td><td>256GB NVMe SSD</td><td>1</td><td>$40</td><td>$40</td></tr>
-        </tbody>
-        <tfoot>
-          <tr class="bom-total"><td colspan="4">Total per unit</td><td><strong>$1,600</strong></td></tr>
-          <tr><td colspan="4">4-unit array</td><td><strong>$6,400</strong></td></tr>
-          <tr><td colspan="4">16-unit array</td><td><strong>$25,600</strong></td></tr>
-        </tfoot>
-      </table>
-    </div>
-    <p class="bom-note">
-      ✅ <strong>Pros:</strong> 全部货架产品, No custom mechanics required, Linux 生态成熟<br>
-      ⚠️ <strong>注意:</strong> IMX571 module needs RK3576 driver adaptation (Arducam ships RK3588 version; 3576 needs porting)
-    </p>
-  </div>
-</section>
+
 
 <!-- ============ BOM B ============ -->
 <section class="section section-dark" id="bom-b">
   <div class="container">
-    <div class="section-eyebrow">PLAN B · BOM · 推荐</div>
+    <div class="section-eyebrow">BOM · 物料清单</div>
     <h2 class="section-title">Phone Conversion Plan — Bill of Materials</h2>
     <div class="bom-table-wrap">
       <table class="bom-table">
