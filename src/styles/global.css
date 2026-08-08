@@ -555,6 +555,24 @@ body {
   margin-top: 16px; font-size: 10px !important;
 }
 
+/* engineering deep-dive (phone repurposing feasibility) */
+.eng-deepdive {
+  margin-top: 56px; padding: 40px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+}
+.eng-title {
+  font-family: var(--font-serif); font-size: 28px; font-weight: 600;
+  margin-bottom: 12px; color: var(--text);
+}
+.eng-sub { font-size: 14px; color: var(--text-mute); line-height: 1.6; margin-bottom: 32px; }
+.eng-item { margin-bottom: 24px; }
+.eng-item:last-child { margin-bottom: 0; }
+.eng-item h4 {
+  font-family: var(--font-mono); font-size: 15px; font-weight: 700;
+  color: var(--accent); margin-bottom: 8px; line-height: 1.4;
+}
+.eng-item p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+
 @media (max-width: 900px) {
   .science-grid { grid-template-columns: 1fr; }
   .lang-switcher { margin-left: 12px; padding-left: 12px; }
